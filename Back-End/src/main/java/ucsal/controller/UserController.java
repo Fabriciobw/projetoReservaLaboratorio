@@ -1,5 +1,8 @@
 package ucsal.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.servlet.http.HttpServletRequest;
 
 import lombok.RequiredArgsConstructor;
@@ -78,6 +81,26 @@ public class UserController {
       @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
   public UserResponseDTO search(@ApiParam("Username") @PathVariable String username) {
     return modelMapper.map(userService.search(username), UserResponseDTO.class);
+  }
+  
+  
+  
+  @GetMapping(value = "/getTodosUsuarios")
+  @PreAuthorize("hasRole('ROLE_GESTOR')")
+  @ApiOperation(value = "${UserController.getAllUsers}", response = UserResponseDTO.class, authorizations = { @Authorization(value="apiKey") })
+  @ApiResponses(value = {//
+      @ApiResponse(code = 400, message = "Something went wrong"), //
+      @ApiResponse(code = 403, message = "Access denied"), //
+      @ApiResponse(code = 404, message = "The user doesn't exist"), //
+      @ApiResponse(code = 500, message = "Expired or invalid JWT token")})
+  public List<UserResponseDTO> getAllUsers() {
+	  
+	  List<UserResponseDTO>  users = userService.getAllUsers()
+				.stream()
+				.filter(user -> user.getAppUserRoles().get(0).getAuthority().equals("ROLE_SOLICITANTE"))
+				.map(user -> modelMapper.map(user, UserResponseDTO.class))
+				.collect(Collectors.toList()); 
+	  return users;
   }
 
   @GetMapping(value = "/me")

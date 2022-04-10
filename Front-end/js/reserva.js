@@ -42,6 +42,7 @@ $(document).ready(function(){
 
 
  }else{
+  
     $('#descricao-laboratorio-gestor').css("display",'none')
     $('#descricao-reserva-gestor').css("display",'none')
     $('#descricao-data-gestor').css("display",'none')
@@ -56,9 +57,9 @@ $(document).ready(function(){
         //contentType: 'application/json',
         //data: JSON.stringify(obj),
         success: function (data) {
-
+          
             $.each(data, function(i, item) {
-                $('#laboratorio').append(
+                $('#laboratorio').html(
                   "<option value="+item.id+">"+item.nome+"</option>"
                 ); //.appendTo('#records_table');
               

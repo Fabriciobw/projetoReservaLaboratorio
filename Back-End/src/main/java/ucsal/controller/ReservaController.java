@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import ucsal.enums.StatusReserva;
+import ucsal.model.Laboratorio;
 import ucsal.model.Reserva;
 import ucsal.service.ReservaService;
 
@@ -29,10 +30,13 @@ public class ReservaController {
 	private final ReservaService reservaService;
 	
 
-	 // @PreAuthorize("hasRole('ROLE_GESTOR')")
+	  @PreAuthorize("hasRole('ROLE_GESTOR')")
 	  @GetMapping("/listarReservas")
 	  public List<Reserva> listarReservas() {
-	    return reservaService.getAllReservas();
+		  List<Reserva> list =  reservaService.getAllReservas();
+		  list.forEach(r -> r.getLaboratorio().setPrioridadeUsuarios(null));
+		  
+	    return list;
 	  }
 	  
 	  @PreAuthorize("hasRole('ROLE_SOLICITANTE')")

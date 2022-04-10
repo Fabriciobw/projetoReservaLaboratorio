@@ -2,6 +2,7 @@ package ucsal.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Laboratorio {
 	  @OneToMany(mappedBy = "laboratorio")
 	  private List<Reserva> reserva;
 	  
-	  @OneToMany(mappedBy = "laboratorio")
+	  @OneToMany(mappedBy = "laboratorio", cascade = CascadeType.PERSIST)
 	  private List<AppUser> prioridadeUsuarios;
 	  
 	

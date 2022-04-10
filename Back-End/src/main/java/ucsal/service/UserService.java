@@ -1,12 +1,9 @@
 package ucsal.service;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import lombok.RequiredArgsConstructor;
-import ucsal.exception.CustomException;
-import ucsal.model.AppUser;
-import ucsal.repository.UserRepository;
-import ucsal.security.JwtTokenProvider;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,6 +11,15 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import org.modelmapper.ModelMapper;
+
+import lombok.RequiredArgsConstructor;
+import ucsal.dto.UserResponseDTO;
+import ucsal.exception.CustomException;
+import ucsal.model.AppUser;
+import ucsal.repository.UserRepository;
+import ucsal.security.JwtTokenProvider;
 
 @Service
 @RequiredArgsConstructor
@@ -62,5 +68,17 @@ public class UserService {
   public String refresh(String username) {
     return jwtTokenProvider.createToken(username, userRepository.findByUsername(username).getAppUserRoles());
   }
+
+   public List<AppUser> getAllUsers() {
+	   	return userRepository.findAll();
+    }
+   
+   public List<AppUser> getAllUsersByIds(List<Integer> ids){
+	   return userRepository.finByUsersIds(ids);
+   }
+
+public void saveAll(List<AppUser> users) {
+	userRepository.saveAll(users);
+}
 
 }
