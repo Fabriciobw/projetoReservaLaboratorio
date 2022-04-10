@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="./css/home.css">
+  <title>Cadastrar usuário</title>
+  <style>
+    .container{
+      height: 25vh !important;
+    }
+    h2{
+      padding-top: 15px;
+    }
+    select{
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="bg-dark navbar-expand-lg">
+    <ul class="nav justify-content-center" id="menu">
+     
+    </ul>
+  </nav>
+  <div class="container">
+    <h2>Cadastrar Novo Usuário</h2>
+  <div class="row">
+      <div class="col-5 col-md-3 mt-4">
+        <label>Usuário</label>
+       <div class="input-group">
+       <input type="text" class="form-control" id="username" aria-label="Username" aria-describedby="basic-addon1">
+       </div>
+       
+      </div>
+      <div class="col-3 col-md-3 mt-4">
+        <label>Perfil</label>
+        <div>
+          <select class="form-select" id="perfil">
+            <option selected>Selecione</option>
+            <option value="ROLE_ADMIN">Administrador</option>
+            <option value="ROLE_COZINHA">Cozinha</option>
+            <option value="ROLE_BRUNCH">Brunch</option>
+            <option value="ROLE_BAR">Bar</option>
+            <option value="ROLE_PIZZAS">Pizzas</option>
+            <option value="ROLE_BURGUES">Burgues</option>
+            <option value="ROLE_SOBREMESA">Sobremesa</option>
+            <option value="ROLE_LIMPEZA">Limpeza</option>
+            <option value="ROLE_DESCARTAVEIS">Descatáveis</option>
+          </select>
+        </div>
+      
+      </div>
+      <div class="col-4 col-md-3 mt-4" >
+        <label>E-mail</label>
+      <div class="input-group">
+      <input type="email" class="form-control" id="email" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      </div>
+
+      <div class="col-3 col-md-3 mt-4" >
+        <label>Senha</label>
+      <div class="input-group">
+      <input type="text" class="form-control" id="password" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      </div>
+     
+      <div class="col-12 col-md-12 mt-4 d-flex justify-content-end">
+        <button type="button" id="cadastrar" class="btn btn-success mr-3">Cadastrar</button>
+      </div>
+     
+  </div>
+  </div>
+
+<!-- Modal -->
+<div id="success_tic" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <a class="close" href="#" data-dismiss="modal">&times;</a>
+      <div class="page-body">
+    <div class="head">  
+      <h3 style="margin-top:5px;">Sucesso</h3>
+      <h4>O usuário foi inserido</h4>
+    </div>
+
+  <h1 style="text-align:center;"><div class="checkmark-circle">
+  <div class="background"></div>
+  <div class="checkmark draw"></div>
+</div><h1>
+
+  </div>
+</div>
+    </div>
+
+  </div>
+
+
+  
+  <script src="vendor/jquery/jquery-3.6.0.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/createUser.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
