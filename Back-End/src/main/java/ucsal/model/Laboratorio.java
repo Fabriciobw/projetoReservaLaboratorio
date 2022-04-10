@@ -2,19 +2,18 @@ package ucsal.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ucsal.enums.StatusLaboratorio;
 
 @Entity
 @Data // Create getters and setters
@@ -29,13 +28,14 @@ public class Laboratorio {
 	  @Column(unique = true, nullable = false)
 	  private String nome;
 	  
+	  @JsonIgnore
 	  @OneToMany(mappedBy = "laboratorio")
 	  private List<Reserva> reserva;
 	  
 	  @OneToMany(mappedBy = "laboratorio")
 	  private List<AppUser> prioridadeUsuarios;
 	  
-	  private StatusLaboratorio status;
+	
 	  
 	  
 	  

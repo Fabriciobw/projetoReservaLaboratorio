@@ -43,7 +43,7 @@ public class UserController {
     return userService.signin(user.getUsername(), user.getPassword());
   }
   
-  
+  @PreAuthorize("hasRole('ROLE_GESTOR')")
   @PostMapping("/signup")
   @ApiOperation(value = "${UserController.signup}")
   @ApiResponses(value = {//
@@ -51,12 +51,12 @@ public class UserController {
       @ApiResponse(code = 403, message = "Access denied"), //
       @ApiResponse(code = 422, message = "Username is already in use")})
   public String signup(@ApiParam("Signup User") @RequestBody UserDataDTO user) {
-	  System.out.println(user);
+
     return userService.signup(modelMapper.map(user, AppUser.class));
   }
 
+  @PreAuthorize("hasRole('ROLE_GESTOR')")
   @DeleteMapping(value = "/{username}")
-  @PreAuthorize("hasRole('ROLE_ADMIN')")
   @ApiOperation(value = "${UserController.delete}", authorizations = { @Authorization(value="apiKey") })
   @ApiResponses(value = {//
       @ApiResponse(code = 400, message = "Something went wrong"), //
@@ -69,7 +69,7 @@ public class UserController {
   }
 
   @GetMapping(value = "/{username}")
-  @PreAuthorize("hasRole('ROLE_ADMIN')")
+  @PreAuthorize("hasRole('ROLE_GESTOR')")
   @ApiOperation(value = "${UserController.search}", response = UserResponseDTO.class, authorizations = { @Authorization(value="apiKey") })
   @ApiResponses(value = {//
       @ApiResponse(code = 400, message = "Something went wrong"), //
@@ -81,7 +81,7 @@ public class UserController {
   }
 
   @GetMapping(value = "/me")
-  @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
+  @PreAuthorize("hasRole('ROLE_GESTOR') or hasRole('ROLE_SOLICITANTE')")
   @ApiOperation(value = "${UserController.me}", response = UserResponseDTO.class, authorizations = { @Authorization(value="apiKey") })
   @ApiResponses(value = {//
       @ApiResponse(code = 400, message = "Something went wrong"), //
@@ -92,7 +92,6 @@ public class UserController {
   }
 
   @GetMapping("/refresh")
-  //@PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_CLIENT')")
   public String refresh(HttpServletRequest req) {
     return userService.refresh(req.getRemoteUser());
   }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ucsal.enums.StatusReserva;
+import ucsal.model.Laboratorio;
 import ucsal.model.Reserva;
 import ucsal.repository.ReservaRespository;
 
@@ -25,7 +27,17 @@ public class ReservaService {
 		return reservaRespository.findAll();
 	}
 
-	public void saveReserva(Reserva reserva) {
+	public String salvarReserva(Reserva reserva) {
 		reservaRespository.save(reserva);
+		return "Done";
 	}
+	
+	
+	public List<Reserva> getAllReservasLiberadas() {
+		return reservaRespository.findAllWhoIsReservado();
+	}
+	
+
+	
+	
 }

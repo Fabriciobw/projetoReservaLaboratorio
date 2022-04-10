@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/home.css">
+  <title>Pagina inicial</title>
+</head>
+<body >
+  <nav class="bg-dark navbar-expand-lg">
+    <ul class="nav justify-content-center" id="menu">
+     
+    </ul>
+  </nav>
+  <div class="container">
+  <div class="row">
+      <div class="col-5 col-md-4 mt-4" id="descricao-reserva">
+        <label>Descricao Reserva</label>
+       <div class="input-group">
+       <input type="text" class="form-control" aria-label="Descriçao" aria-describedby="basic-addon1" id="descricao">
+       </div>
+       
+      </div>
+
+      <div class="col-3 col-md-3 mt-4" id="descricao-laboratorio-gestor">
+    </div>
+    <div class="col-3 col-md-3 mt-4" id="descricao-reserva-gestor">
+    </div>
+    <div class="col-3 col-md-3 mt-4" id="descricao-data-gestor">
+    </div>
+    <div class="col-3 col-md-3 mt-4" id="descricao-dataLimite-gestor">
+    </div>
+
+      <div class="col-5 col-md-4 mt-4" id="laboratorio-reserva">
+        <label>Laboratório</label>
+        <div class="input-group">
+        <select class="form-select" aria-label="Default select example" id="laboratorio">
+          <option selected>Selecione</option>
+          
+        </select>
+      </div>
+     </div>
+     <div class="col-5 col-md-4 mt-4" id="data-reserva">
+        <label>Data</label>
+        <div class="input-group">
+            <input type="datetime-local" class="form-control" aria-label="data" aria-describedby="basic-addon1" id="data">
+      </div>
+     </div>
+     <div class="col-5 col-md-4 mt-4" id="data-limite">
+        <label>Data Limite</label>
+        <div class="input-group">
+            <input type="datetime-local" class="form-control" aria-label="data limite" aria-describedby="basic-addon1" id="dataLimite">
+      </div>
+     </div>
+
+
+     <div class="col-5 col-md-4 mt-4" id="status-reserva">
+        <label>Status</label>
+        <div class="input-group">
+        <select class="form-select" aria-label="Default select example" id="status" >
+          <option selected>Selecione</option>
+          <option value="0">APROVADO</option>
+          <option value="1">NEGADO</option>
+          <option value="2">PENDENTE</option>
+          <option value="3">FINALIZADO</option>
+          <option value="4">DESISTIDO</option>
+        </select>
+      </div>
+     </div>
+
+
+     <div class="col-12 col-md-12 mt-4">
+      <div class="button-submit-laboratorio">
+        <button type="button" class="btn btn-success" id="enviar" style="cursor: pointer;">Enviar</button>
+      </div>
+      <div>
+    
+  </div>
+  </div>
+  <script src="vendor/jquery/jquery-3.6.0.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/reserva.js"></script>
+</body>

@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -37,12 +39,13 @@ public class AppUser {
 	private String password;
 
 	@ManyToOne
-	@JoinColumn(name = "laboratorio_id")
+	@JoinColumn(name = "laboratorio_com_prioridade_id")
 	private Laboratorio laboratorio;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	List<AppUserRole> appUserRoles;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario")
 	private List<Reserva> reserva;
 
