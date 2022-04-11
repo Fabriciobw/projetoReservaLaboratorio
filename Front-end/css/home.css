@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 .menu-link{
   background-color: rgb(45, 100, 28);
   margin-left: 20px;
@@ -19,6 +21,53 @@ nav{
   -moz-box-shadow: 0px 0px 22px 6px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 22px 6px rgba(0,0,0,0.75);
   height: 80vh;
+}
+
+.container h2 {
+  color: #ced4da;
+  text-shadow: 0px 0px 10px #212529;
+  font-family: 'Anton', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background: rgb(35,83,63);
+  background: -moz-radial-gradient(circle, rgba(35,83,63,1) 0%, rgba(5,47,30,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(35,83,63,1) 0%, rgba(5,47,30,1) 100%);
+  background: radial-gradient(circle, rgba(35,83,63,1) 0%, rgba(5,47,30,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#23533f",endColorstr="#052f1e",GradientType=1);
+}
+
+.container img {
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  
+  
+}
+
+.textogestor {
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  padding-top: 5%;
+  font-size: 30px;
+}
+
+.textouser {
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  padding-top: 1%;
+  
+  font-size: 30px;
+}
+
+.textouser2 {
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  padding-bottom: 3%;
+  font-size: 15px;
 }
 
 .close{
