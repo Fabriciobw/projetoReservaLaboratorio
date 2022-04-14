@@ -21,4 +21,5 @@ public interface UserRepository extends JpaRepository<AppUser, Integer> {
 
   @Query("SELECT u FROM AppUser u WHERE u.id IN (:ids)")     // 2. Spring JPA In cause using @Query
   List<AppUser> finByUsersIds(@Param("ids") List<Integer> ids);
+  
 }

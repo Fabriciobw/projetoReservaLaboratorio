@@ -33,7 +33,7 @@ public class Laboratorio {
 	  @OneToMany(mappedBy = "laboratorio")
 	  private List<Reserva> reserva;
 	  
-	  @OneToMany(mappedBy = "laboratorio", cascade = CascadeType.PERSIST)
+	  @OneToMany(mappedBy = "laboratorio", cascade = CascadeType.MERGE)
 	  private List<AppUser> prioridadeUsuarios;
 	  
 	

@@ -25,9 +25,9 @@ public class LaboratorioService {
 		return laboratorioRepository.findAll();
 	}
 	
-	public String saveLaboratorio(Laboratorio laboratorio) {
+	public void saveLaboratorio(Laboratorio laboratorio) {
 		laboratorioRepository.save(laboratorio);
-		return "Created";
+	
 	}
 	
 	

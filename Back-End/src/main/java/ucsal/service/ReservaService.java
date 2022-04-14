@@ -36,6 +36,11 @@ public class ReservaService {
 	public List<Reserva> getAllReservasLiberadas() {
 		return reservaRespository.findAllWhoIsReservado();
 	}
+
+	public List<Reserva> getaAllReservasByUserId(Integer id) {
+		// TODO Auto-generated method stub
+		return reservaRespository.findAllReservasByUserId(id);
+	}
 	
 
 	

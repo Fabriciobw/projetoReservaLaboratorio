@@ -37,7 +37,10 @@ $(document).ready(function(){
         $("#menu").append(' <li class="nav-item">' +
         '<a class="nav-link menu-link" aria-current="page" href="reserva.html">Cadastrar Reserva</a></li>');
         $("#menu").append(' <li class="nav-item">' +
+        '<a class="nav-link menu-link" aria-current="page" href="minhasReservas.html">Minhas Reservas</a></li>');
+        $("#menu").append(' <li class="nav-item">' +
         '<a class="nav-link menu-link" id="button-sair" aria-current="page" href="login.html">Sair</a></li>');
+     
         break;
      
       default:

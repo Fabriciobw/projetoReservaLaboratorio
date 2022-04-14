@@ -17,7 +17,7 @@ $(document).ready(function(){
     const password = $("#password").val()
     const email = $("#email").val()
     const perfil = $("#perfil").val()
-    const api = "http://localhost:8080/users"
+    const api = "http://localhost:8080/backend/users"
 
     const obj = { username: username,
                   password: password,

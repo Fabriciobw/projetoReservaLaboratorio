@@ -15,7 +15,7 @@ $(document).ready(function(){
     var aValue = localStorage.getItem('login');
     let objStored = JSON.parse(aValue);
     let token = objStored.token;
-    let api = "http://localhost:8080"
+    let api = "http://localhost:8080/backend"
 
     $.ajax({
       

@@ -25,13 +25,13 @@ $(document).ready(function(){
       switch (userAuth) {
         case 'ROLE_GESTOR':
          $("#homepage").append('<p class="textogestor"> Você está logado como Gestor <br> Utilize o menu acima para navegar nas opções.</p>');
-         $("#homepage").append('<img src="/images/computadores.png" alt="Imagem" >');
+         $("#homepage").append('<img src="/myApp/images/computadores.png" alt="Imagem" >');
         
         break;
         case 'ROLE_SOLICITANTE':
           $("#homepage").append('<p class="textouser"> Você está logado como Usuário <br> Utilize o menu acima para cadastrar sua reserva.</p>');
-          $("#homepage").append('<p class="textouser2"> Segue abaixo a lista de suas reservas:</p>');
-         $("#homepage").append('<img src="/images/computadores.png" alt="Imagem" >');
+         
+         $("#homepage").append('<img src="/myApp/images/computadores.png" alt="Imagem" >');
           break;
        
         default:

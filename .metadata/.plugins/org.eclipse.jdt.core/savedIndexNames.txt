@@ -51,7 +51,6 @@ INDEX VERSION 1.131+D:\Fabricio\Workspace2\.metadata\.plugins\org.eclipse.jdt.co
 975810678.index
 80538313.index
 2756481331.index
-3578566096.index
 319580136.index
 2020499030.index
 4267399015.index

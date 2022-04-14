@@ -4,7 +4,7 @@ $(document).ready(function(){
     var aValue = localStorage.getItem('login');
     const objStored = JSON.parse(aValue);
     const token = objStored.token;
-    const api = "http://localhost:8080"
+    const api = "http://localhost:8080/backend"
     function parseJwt (token) {
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
@@ -119,7 +119,7 @@ $(document).ready(function(){
             id:$("#laboratorio").val()
         },
         usuario: {
-            id:1
+            id: userSettings.userId
         },
        // status: $("#status").val(),
         dataReserva:  changeDateFormatTo($("#data").val()),

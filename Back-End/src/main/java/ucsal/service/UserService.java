@@ -1,7 +1,6 @@
 package ucsal.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,10 +11,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import org.modelmapper.ModelMapper;
-
 import lombok.RequiredArgsConstructor;
-import ucsal.dto.UserResponseDTO;
 import ucsal.exception.CustomException;
 import ucsal.model.AppUser;
 import ucsal.repository.UserRepository;
@@ -33,7 +29,8 @@ public class UserService {
   public String signin(String username, String password) {
     try {
       authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-      return jwtTokenProvider.createToken(username, userRepository.findByUsername(username).getAppUserRoles());
+     AppUser user = userRepository.findByUsername(username);
+      return jwtTokenProvider.createToken(user.getId(),username, user.getAppUserRoles());
     } catch (AuthenticationException e) {
       throw new CustomException("Invalid username/password supplied", HttpStatus.UNPROCESSABLE_ENTITY);
     }
@@ -43,7 +40,7 @@ public class UserService {
     if (!userRepository.existsByUsername(appUser.getUsername())) {
       appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
       userRepository.save(appUser);
-      return jwtTokenProvider.createToken(appUser.getUsername(), appUser.getAppUserRoles());
+      return jwtTokenProvider.createToken(appUser.getId(),appUser.getUsername(), appUser.getAppUserRoles());
     } else {
       throw new CustomException("Username is already in use", HttpStatus.UNPROCESSABLE_ENTITY);
     }
@@ -66,7 +63,8 @@ public class UserService {
   }
 
   public String refresh(String username) {
-    return jwtTokenProvider.createToken(username, userRepository.findByUsername(username).getAppUserRoles());
+	  AppUser user = userRepository.findByUsername(username);
+    return jwtTokenProvider.createToken(user.getId(),username, user.getAppUserRoles());
   }
 
    public List<AppUser> getAllUsers() {
@@ -77,8 +75,12 @@ public class UserService {
 	   return userRepository.finByUsersIds(ids);
    }
 
-public void saveAll(List<AppUser> users) {
+   public void saveAll(List<AppUser> users) {
 	userRepository.saveAll(users);
-}
+   }
+   
+   public AppUser findByUsername(String username) {
+	   return userRepository.findByUsername(username);
+   }
 
 }

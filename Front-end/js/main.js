@@ -76,7 +76,7 @@
 
         const username = $("#username").val()
         const password = $("#password").val()
-        const api = "http://localhost:8080/users"
+        const api = "http://localhost:8080/backend/users"
 
         const obj = { username: username, password: password };
 
