@@ -70,7 +70,7 @@ public class JwtAuthServiceApp extends SpringBootServletInitializer implements C
     
 
 	  Laboratorio laboratorio = new Laboratorio();
-	  laboratorio.setNome("adsXAU");
+	  laboratorio.setNome("Laboratorio");
 	  
 	  
 	  
